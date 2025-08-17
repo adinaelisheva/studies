@@ -1,5 +1,3 @@
-
-
 .divider {
   width: 100%;
   border-bottom: 1px solid #ddd;
@@ -44,6 +42,10 @@ div.complete,
 div.complete.wrong,
 .completeButton.wrong {
   color: #9e0404;
+}
+
+.completeButton.wrong:hover {
+  color: #580202;
 }
 
 .task {
