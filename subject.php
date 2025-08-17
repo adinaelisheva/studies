@@ -35,6 +35,23 @@
       <?php } else { ?>
         <div class="complete">Preliminary quiz complete! ✓</div>
       <?php
+        $res0 = mysqli_query($con, "SELECT * from prelim_questions WHERE subj_id='$g_currentSubjId';");
+        if(!$res0) {
+          exit();
+        } ?>
+        <div class="divider"></div>
+        <?php while($row = mysqli_fetch_array($res0)){?>
+          <div class="prelimAnswerRow">
+            <div class="prelimQ"><?=$row['question']?></div>
+            <?php if(str_starts_with($row['answer'], "http")) { ?>
+              <a class="prelimA" href="<?=$row['answer']?>"><?=$row['answer']?></a>
+            <?php } else { ?>
+              <div class="prelimA"><?=$row['answer']?></div>
+            <?php } ?>
+          </div>
+      <?php } ?>
+        <div class="divider"></div>
+      <?php
         $res = mysqli_query($con, "SELECT * from tasks WHERE subj_id='$g_currentSubjId';");
         if(!$res) { 
           exit();

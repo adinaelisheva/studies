@@ -58,3 +58,35 @@ div.complete.wrong,
   flex-shrink: 0;
   margin-left: 20px;
 }
+
+.prelimAnswerRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.prelimAnswerRow + .prelimAnswerRow {
+  margin-top: 20px;
+}
+
+.prelimQ {
+  font-style: italic;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.prelimA {
+  overflow-wrap: anywhere;
+}
+
+.prelimAnswerRow a.prelimA {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.divider {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  margin: 20px 0;
+}

@@ -34,7 +34,7 @@
           <div class="error">Couldn't find any questions for this quiz!</div>
           <?php while($row = mysqli_fetch_array($res)){ 
             $questionsExist = true; ?>
-            <div class="questionRow">
+            <div class="questionRow" qid="<?=$row['id']?>">
               <div class="questionContainer">
                 <div class="question"><?=$row['question']?></div>
                 <div class="invalid hidden">Invalid</div>

@@ -47,6 +47,11 @@ function validateQuiz() {
     document.querySelector('button.submit').classList.add('hidden');
     const curSubjId = document.querySelector('.curSubjId').innerText;
     fetch(`./markQuizComplete.php?id=${curSubjId}`);
+    for (const q of questions) {
+      const qid = q.getAttribute('qid');
+      const answer = q.querySelector('.answer input').value;
+      fetch(`./answerPrelimQuestion.php?id=${qid}&answer=${answer}`);
+    }
   } else {
     document.querySelector('.buttonRow .invalid').classList.remove('hidden');
     document.querySelector('.buttonRow .valid').classList.add('hidden');

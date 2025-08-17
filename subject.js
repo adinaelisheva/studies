@@ -39,8 +39,6 @@ function startNewSection(completed) {
   if (completed) {
     fetch(`./completeSection.php?id=${id}`);
   }
-  // While navigating, delete any previous tasks and questions
-  fetch(`./clearSubject.php?id=${id}`);
   window.location = './createSection.php?id=' + id;
 }
 
