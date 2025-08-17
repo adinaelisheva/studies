@@ -1,0 +1,175 @@
+.hidden {
+  display: none;
+}
+
+body {
+  padding-top: 50px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: white;
+  border-bottom: 1px solid #b7b7b7;
+  box-shadow: 0px 3px 5px 0px rgba(204,204,204,1);
+}
+
+.topbar > div {
+  display: flex;
+  align-items: center;
+}
+
+.topbarSection > a,
+.topbarSection > div {
+  margin: 10px;
+}
+
+.topbarSection > a {
+  color: rgb(115, 132, 134);
+}
+
+.topbarSection > a:hover {
+  color: rgb(123, 166, 179);
+}
+
+.topbarSection > .sitename {
+  font-family: 'Balsamiq Sans', cursive;
+  color: #24b124;
+  margin-top: 13px;
+}
+
+.topbarSection > .divider {
+  background: #ccc;
+  height: 20px;
+  width: 1px;
+}
+
+.error:not(:only-child) {
+  display: none;
+}
+
+.content {
+  font-family: 'Raleway', sans-serif;
+  border-radius: 10px;
+  padding: 20px 50px 100px;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ddd;
+}
+
+
+@media screen and (max-width: 600px) {
+  .content {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-family: 'Lora', serif;
+  margin-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Lora', serif;
+  color: #087c99;
+}
+
+a:hover {
+  color: #0dabd3;
+}
+
+.content a {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: system-ui, sans-serif;
+  font-weight: normal;
+}
+
+a.overlay {
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+button {
+  background: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+button:enabled {
+  cursor: pointer;
+}
+
+button:enabled:hover {
+  color: #055705;
+}
+
+button:active {
+  background: #cacaca;
+}
+
+.invalid {
+  color: #b71a00;
+}
+
+.valid {
+  color: #008b00;
+}
+
+@keyframes shimmer {
+  from {
+    color: #666;
+  }
+  to {
+    color: #999;
+  }
+}
+
+.loading {
+  font-style: italic;
+  color: #666;
+  animation: 0.5s infinite alternate shimmer;
+}
+
+input:not([type="checkbox"]), textarea {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #cacaca;
+}
+
+input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+}
+
+select {
+  font-family: 'Raleway', sans-serif;
+  padding: 5px 10px;
+  border-radius: 7px;
+}

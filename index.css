@@ -1,0 +1,92 @@
+.subject {
+  margin-bottom: 20px;
+  padding: 10px;
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.subject:hover {
+  border-color: #0dabd3;
+}
+
+.subject:not(:last-child):after {
+  width: 100%;
+  content: '';
+  border-bottom: 1px solid rgb(203, 203, 203);
+  top: 21px;
+  display: block;
+  position: relative;
+}
+
+.title {
+  padding: 10px;
+  font-size: 16px;
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.row .progressSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.row.sectionInfo {
+  border: 1px solid #bfbfbf;
+  padding: 10px;
+  margin: 10px 0 10px 10px;
+  border-radius: 10px;
+}
+
+.section {
+  width: 150px;
+}
+
+.score {
+  font-weight: bold;
+  width: 45px;
+  margin-right: 10px;
+}
+
+.pct {
+  width: 100px;
+  height: 15px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  position: relative;
+}
+
+.pct.invisible {
+  opacity: 0;
+}
+
+.pctbar {
+  height: 100%;
+  background: #087c99;
+}
+
+.row:not(.sectionInfo) .pct {
+  margin-right: 10px;
+}
+
+.status {
+  font-style: italic;
+  margin-left: 10px;
+}
+
+.status.prelim {
+  color: #ba9728;
+}
+
+.status.inprogress {
+  color: #0f7c0f;
+}

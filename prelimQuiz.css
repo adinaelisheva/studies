@@ -1,0 +1,39 @@
+.validation,
+.buttonRow div.hidden {
+  display: none;
+}
+
+.questionRow .hidden {
+  display: block;
+  visibility: hidden;
+}
+
+.questionRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.answer {
+  margin-left: 20px;
+}
+
+input[type="text"] {
+  width: 175px;
+}
+
+input[type="number"] {
+  width: 50px;
+}
+
+.buttonRow,
+.buttonRow .valid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+a.return,
+div.invalid {
+  margin-top: 10px;
+}

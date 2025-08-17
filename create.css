@@ -1,0 +1,65 @@
+input[type=text], textarea {
+  flex-grow: 1;
+}
+
+textarea {
+  height: 50px;
+}
+
+.item.hidden {
+  display: none;
+}
+
+.withError {
+  outline: 1px solid rgb(240, 12, 12);
+}
+
+.item {
+  display: flex;
+  margin: 15px 0;
+  align-items: center;
+}
+
+.item div:first-child {
+  min-width: 125px;
+  margin-right: 10px;
+}
+
+.wideitem textarea {
+  width: 100%;
+  height: 60px;
+}
+
+.explanation {
+  font-size: 14px;
+  font-style: italic;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.divider {
+  border-bottom: solid 1px #888;
+  margin: 30px 10px;
+}
+
+.divider.small {
+  border-color: #ddd;
+}
+
+.buttonrow button {
+  font-size: 12px;
+  padding: 3px 6px;
+  margin-right: 5px;
+}
+
+.buttonrow button:enabled:hover {
+  color: #666;
+}
+
+button.create {
+  margin: 10px 0 15px;
+}
+
+.sectionNames {
+  font-size: 16px;
+}

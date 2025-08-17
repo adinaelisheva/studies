@@ -1,0 +1,60 @@
+div.complete,
+.completeButton.correct {
+  color: #008b00;
+}
+
+div.complete.wrong,
+.completeButton.wrong {
+  color: #9e0404;
+}
+
+.task {
+  min-height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.task .complete {
+  font-size: 24px;
+}
+
+.subjectComplete,
+.cancelSubject {
+  margin-top: 50px;
+}
+
+.cancelSubject button {
+  font-size: 14px;
+  color: #5a5a5a;
+}
+
+.cancelSubject button:hover {
+  color: #bb3131;
+}
+
+.subjectComplete div, 
+.subjectComplete button,
+.newSection,
+.newSection .start {
+  margin-top: 20px;
+}
+
+.newSection  input {
+  width: 175px;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #cacaca;
+  margin-left: 20px;
+}
+
+.startedMessage {
+  margin-top: 10px;
+  color: #008b00;
+}
+
+.completeButton {
+  flex-shrink: 0;
+  margin-left: 20px;
+}

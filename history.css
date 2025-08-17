@@ -1,0 +1,27 @@
+.studies .row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.studies .row:nth-child(even) {
+  background: rgb(237, 248, 250);
+}
+
+.studies .row:nth-child(odd) {
+  background: #eee;
+}
+
+.rightSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.score {
+  font-weight: bold;
+  margin-right: 15px;
+}
