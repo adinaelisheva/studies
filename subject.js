@@ -37,7 +37,14 @@ function setup() {
 function startNewSection(completed) {
   const id = location.search.match(/id=(\d+)/)[1];
   if (completed) {
-    fetch(`./completeSection.php?id=${id}`);
+    let fetchStr = `./completeSection.php?id=${id}`;
+    if (document.querySelector('.complete.correct')) {
+      const correct = document.querySelectorAll('.task .complete.correct:not(.hidden)').length;
+      const total = document.querySelectorAll('.task .complete:not(.hidden)').length;
+      const score = Math.floor((correct/total) * 100);
+      fetchStr = fetchStr + `&score=${score}`;
+    }
+    fetch(fetchStr);
   }
   window.location = './createSection.php?id=' + id;
 }

@@ -18,6 +18,10 @@
     $subjectName = $subjectInfo['subject'];
     $section = explode(',',$subjectInfo['sections'])[$subjectInfo['cur_section'] - 1];
     $query = "INSERT INTO completed (subject, section, date, subj_id) VALUES ('$subjectName','$section', '$curdate', '$id');";
+    if (isset($_GET["score"])) {
+      $score = $_GET["score"];
+      $query = "INSERT INTO completed (subject, section, date, subj_id, score) VALUES ('$subjectName','$section', '$curdate', '$id', '$score');";
+    }
     mysqli_query($con,$query) or die(mysqli_error($con));
   }
 ?>
