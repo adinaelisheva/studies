@@ -18,7 +18,7 @@
     ?>
     <div class="content">
       <?php
-        $res = mysqli_query($con, "SELECT * from studies;");
+        $res = mysqli_query($con, "SELECT * from studies ORDER BY id DESC;");
         if(!$res) {
           exit();
         } ?>
