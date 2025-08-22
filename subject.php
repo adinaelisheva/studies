@@ -53,8 +53,12 @@
       <?php } ?>
         <div class="divider"></div>
       <?php
-        $res = mysqli_query($con, "SELECT * from tasks WHERE subj_id='$g_currentSubjId';");
-        if(!$res) { 
+        $resUnc = mysqli_query($con, "SELECT * from tasks WHERE subj_id='$g_currentSubjId' AND completed=0;");
+        if(!$resUnc) { 
+          exit();
+        } 
+        $resCom = mysqli_query($con, "SELECT * from tasks WHERE subj_id='$g_currentSubjId' AND completed=1;");
+        if(!$resCom) { 
           exit();
         } 
         $sectionCompleted = true;
@@ -62,32 +66,41 @@
         <h2>Next tasks:</h2>
         <div>
           <div class="error">Couldn't find any tasks for this subject!</div>
-          <?php while($row = mysqli_fetch_array($res)){ 
-            $completed = $row['completed'];
-            $correct = $row['correct'];
+          <?php while($row = mysqli_fetch_array($resUnc)) { 
             $foundAnyQuestions = true;
-            if (!$completed) {
-              $sectionCompleted = false;
-            }
-            $completeClass = $completed ? '' : 'hidden';
-            $correctClass = $correct ? '' : 'hidden';
-            $wrongClass = $correct ? 'hidden' : '';
-            $buttonClass = $completed ? 'hidden' : '';?>
+            $sectionCompleted = false; ?>
             <div class="task">
               <div class="taskname"><?=$row['name']?></div>
               <?php if($g_currentSubjAnswers) { ?>
                 <div class="buttonGroup">
-                  <button class="completeButton correct <?=$buttonClass?>" taskid="<?=$row['id']?>">Correct</button>
-                  <button class="completeButton wrong <?=$buttonClass?>" taskid="<?=$row['id']?>">Wrong</button>
-                  <div class="complete correct <?=$completeClass?> <?=$correctClass?>">✓</div>
-                  <div class="complete wrong <?=$completeClass?> <?=$wrongClass?>">𝙭</div>
+                  <button class="completeButton correct" taskid="<?=$row['id']?>">Correct</button>
+                  <button class="completeButton wrong" taskid="<?=$row['id']?>">Wrong</button>
+                  <div class="complete correct hidden">✓</div>
+                  <div class="complete wrong hidden">𝙭</div>
               </div>
               <?php } else { ?>
-                <button class="completeButton <?=$buttonClass?>" taskid="<?=$row['id']?>">Complete</button>
-                <div class="complete <?=$completeClass?>">✓</div>
+                <button class="completeButton" taskid="<?=$row['id']?>">Complete</button>
+                <div class="complete hidden">✓</div>
               <?php } ?>
             </div>
-          <?php } ?>
+          <?php }
+            while($row = mysqli_fetch_array($resCom)){ 
+              $correct = $row['correct'];
+              $foundAnyQuestions = true;
+              $correctClass = $correct ? '' : 'hidden';
+              $wrongClass = $correct ? 'hidden' : '';?>
+              <div class="task">
+                <div class="taskname"><?=$row['name']?></div>
+                <?php if($g_currentSubjAnswers) { ?>
+                  <div class="buttonGroup">
+                    <div class="complete correct <?=$correctClass?>">✓</div>
+                    <div class="complete wrong <?=$wrongClass?>">𝙭</div>
+                </div>
+                <?php } else { ?>
+                  <div class="complete">✓</div>
+                <?php } ?>
+              </div>              
+            <?php } ?>
         </div>
         <?php
         $sectionCompleted = $sectionCompleted && $foundAnyQuestions;
