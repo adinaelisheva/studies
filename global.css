@@ -64,14 +64,6 @@ body {
   border: 1px solid #ddd;
 }
 
-
-@media screen and (max-width: 600px) {
-  .content {
-    width: 100%;
-    margin: 10px 0;
-  }
-}
-
 h1 {
   font-family: 'Lora', serif;
   margin-bottom: 30px;
@@ -172,4 +164,18 @@ select {
   font-family: 'Raleway', sans-serif;
   padding: 5px 10px;
   border-radius: 7px;
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    width: 100%;
+    margin: 10px 0;
+    padding: 0;
+    border: none;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 10px auto 0;
+  }
 }
