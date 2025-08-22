@@ -20,9 +20,10 @@ function setup() {
   }
   const newSectionButton = document.querySelector('.startNewSection');
   const cancelAndRestartButton = document.querySelector('.cancelAndRestart');
+  const completeSubjectButton = document.querySelector('.completeSubject');
  
   // These should all exist
-  if (!newSectionButton || !cancelAndRestartButton) {
+  if (!newSectionButton || !cancelAndRestartButton || !completeSubjectButton) {
     return;
   }
 
@@ -32,6 +33,9 @@ function setup() {
   cancelAndRestartButton.addEventListener('click', () => {
     startNewSection(false);
   });
+  completeSubjectButton.addEventListener('click', () => {
+    completeSubject();
+  })
 }
 
 function startNewSection(completed) {
@@ -74,8 +78,18 @@ function completeTask(index, isCorrect, isWrong) {
   numComplete++;
   if (numComplete === numTasks && numTasks > 0) {
     document.querySelector('.cancelAndRestart').classList.add('hidden');
-    document.querySelector('.subjectComplete').classList.remove('hidden');
+    document.querySelector('.sectionComplete').classList.remove('hidden');
   }
+}
+
+async function completeSubject() {
+  const id = location.search.match(/id=(\d+)/)[1];
+  await fetch(`./completeSubject.php?id=${id}`);
+  document.querySelector('.sectionComplete .buttons').classList.add('hidden');
+  document.querySelector('.subjectComplete').classList.remove('hidden');
+  window.setTimeout(() => {
+    window.location = '.';
+  }, 1000);
 }
 
 window.onload = setup;

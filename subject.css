@@ -60,22 +60,22 @@ div.complete.wrong,
   font-size: 24px;
 }
 
-.subjectComplete,
-.cancelSubject {
+.sectionComplete,
+.cancelSection {
   margin-top: 50px;
 }
 
-.cancelSubject button {
+.cancelSection button {
   font-size: 14px;
   color: #5a5a5a;
 }
 
-.cancelSubject button:hover {
+.cancelSection button:hover {
   color: #bb3131;
 }
 
-.subjectComplete div, 
-.subjectComplete button,
+.sectionComplete div, 
+.sectionComplete button,
 .newSection,
 .newSection .start {
   margin-top: 20px;
@@ -97,4 +97,12 @@ div.complete.wrong,
 .completeButton {
   flex-shrink: 0;
   margin-left: 20px;
+}
+
+.completeSubject {
+  margin-left: 10px;
+}
+
+.subjectComplete {
+  margin-top: 30px;
 }

@@ -56,7 +56,7 @@
         if(!$res) { 
           exit();
         } 
-        $subjectCompleted = true;
+        $sectionCompleted = true;
         $foundAnyQuestions = false; ?>
         <h2>Next tasks:</h2>
         <div>
@@ -66,7 +66,7 @@
             $correct = $row['correct'];
             $foundAnyQuestions = true;
             if (!$completed) {
-              $subjectCompleted = false;
+              $sectionCompleted = false;
             }
             $completeClass = $completed ? '' : 'hidden';
             $correctClass = $correct ? '' : 'hidden';
@@ -89,14 +89,18 @@
           <?php } ?>
         </div>
         <?php
-        $subjectCompleted = $subjectCompleted && $foundAnyQuestions;
-        $subjCompletedClass = $subjectCompleted ? '' : 'hidden';
-        $subjUncompletedClass = $subjectCompleted ? 'hidden' : ''; ?>
-        <div class="subjectComplete <?=$subjCompletedClass?>">
+        $sectionCompleted = $sectionCompleted && $foundAnyQuestions;
+        $secCompletedClass = $sectionCompleted ? '' : 'hidden';
+        $secUncompletedClass = $sectionCompleted ? 'hidden' : ''; ?>
+        <div class="sectionComplete <?=$secCompletedClass?>">
           <div>Finished <?=$g_currentSubjSection?>! 🎉</div>
-          <button class="startNewSection">Start new section</button>
+          <div class="buttons">
+            <button class="startNewSection">Start new section</button>
+            <button class="completeSubject">Finish <?=$g_currentSubjTitle?></button>
+          </div>
         </div>
-        <div class="cancelSubject <?=$subjUncompletedClass?>">
+        <div class="subjectComplete hidden">Finished <?=$g_currentSubjTitle?>! 🎉</div>
+        <div class="cancelSection <?=$secUncompletedClass?>">
           <button class="cancelAndRestart">Cancel and start new section</button>
         </div>
       <?php } ?>
