@@ -6,7 +6,7 @@ function setup() {
   numTasks = tasks.length;
   for (let t = 0; t < tasks.length; t++) {
     // Just check the first one bc all the buttons will be hidden if it's complete
-    if(tasks[t].querySelector('.completeButton').classList.contains('hidden')) {
+    if(!tasks[t].querySelector('.completeButton')) {
       numComplete++;
     }
     const buttons = tasks[t].querySelectorAll('.completeButton');
@@ -79,6 +79,10 @@ function completeTask(index, isCorrect, isWrong) {
   if (numComplete === numTasks && numTasks > 0) {
     document.querySelector('.cancelAndRestart').classList.add('hidden');
     document.querySelector('.sectionComplete').classList.remove('hidden');
+    window.setTimeout(() => { window.scroll({
+      top: document.body.scrollHeight * 2,
+      behavior: "smooth",
+    })}, 500);
   }
 }
 
